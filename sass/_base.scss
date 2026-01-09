@@ -13,3 +13,50 @@ $color-grey-dark-2: #6D5D4B;
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+*, 
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62,5%; /* 10px / 16px = 62,5% = 1rem */
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    /* first row takes 80vh, second row takes min-content, third row takes 40vw, fourth row takes 3 times min-content, fifth row takes 3 times min-content, sixth row takes 3 times min-content*/
+
+    grid-template-columns: /* | Sidebar | Rand | 8 Content-Spalten | Rand | */
+        [sidebar-start] 8rem /* column with 8rem, gridlines are sidebar-start, sidebar-end */
+        [sidebar-end full-start] /* gridline, marks the end of the sidebar and the start of the full width */
+        minmax(6rem, 1fr) /* flexible column, min. 6rem, max. 1fr */
+        [center-start] /* gridline, marks the middle of the grid */
+        repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) /* 8 columns, each column takes min-content, max. 14rem */
+        [center-end] /* gridline, marks the middle of the grid */
+        minmax(6rem, 1fr) /* flexible column, min. 6rem, max. 1fr */
+        [full-end]; /* gridline, marks the end of the grid */
+
+        /*
+        | Sidebar | Rand | 8 Content-Spalten | Rand |
+        | 8rem | flexible column, min. 6rem, max. 1fr | 8 columns, each column takes min-content, max. 14rem | flexible column, min. 6rem, max. 1fr |
+        | sidebar-start | sidebar-end | full-start | center-start | center-end | full-end |
+        */
+
+    & > * {
+        padding: 40px;
+        font-size: 1.6rem;
+    }
+} 
