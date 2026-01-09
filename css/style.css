@@ -29,10 +29,6 @@ body {
   | sidebar-start | sidebar-end | full-start | center-start | center-end | full-end |
   */
 }
-.container > * {
-  padding: 40px;
-  font-size: 1.6rem;
-}
 
 .sidebar {
   background-color: #c69963;
@@ -51,8 +47,11 @@ body {
 }
 
 .features {
-  background-color: #f9f7f6;
   grid-column: center-start/center-end;
+  margin: 15rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
 }
 
 .story__pictures {
