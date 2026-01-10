@@ -46,9 +46,22 @@ body {
   margin-bottom: 8rem;
 }
 
-.heading-4, .heading-3, .heading-2 { /* this is a placeholder for the heading class */
+.heading-4, .heading-3, .heading-2, .heading-1 { /* this is a placeholder for the heading class */
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
+}
+
+.heading-1 {
+  font-size: 4.5rem;
+  color: #f9f7f6;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.heading-1--light {
+  color: #f9f7f6;
+}
+.heading-1--dark {
+  color: #54483A;
 }
 
 .heading-2 {
@@ -129,11 +142,76 @@ body {
 .header {
   background-color: #54483A;
   grid-column: full-start/col-end 6;
+  background-image: linear-gradient(rgba(16, 29, 44, 0.93), rgba(16, 29, 44, 0.93)), url(../img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 8rem 8rem 8rem;
+  display: grid;
+  grid-template-rows: 1fr min-content 6rem 1fr; /* 1fr means the first row takes up the full height of the grid, min-content means the second row takes up the minimum height needed to fit the content, 6rem means the third row takes up 6rem, 1fr means the fourth row takes up the full height of the grid */
+  grid-template-columns: max-content; /* max-content means the columns takes up the maximum width needed to fit the content */
+  grid-row-gap: 1.5rem;
+  justify-content: center; /* centers the content in the grid */
+}
+.header__logo {
+  height: 3rem;
+  justify-self: center; /* centers the logo in the grid */
+}
+.header__seenons-text {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 2rem;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #aaa;
+}
+.header__seenons-text::before, .header__seenons-text::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: currentColor;
+  width: 100%;
+}
+.header__seenons-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 3rem;
+  justify-items: center;
+}
+.header__seenons-logos img {
+  height: 2.5rem;
+  filter: brightness(70%); /* makes the logos slightly darker */
+}
+.header__btn { /* aligns the button to the start of the grid */
+  align-self: start;
+  justify-self: start;
 }
 
 .realtors {
   background-color: #101d2c;
   grid-column: col-start 7/full-end;
+  padding: 3rem;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  grid-row-gap: 2rem;
+}
+.realtors__list {
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-column-gap: 2rem;
+  grid-row-gap: 5vh;
+  align-items: center;
+}
+.realtors__img {
+  width: 7rem;
+  border-radius: 50%;
+  display: block;
+}
+.realtors__sold {
+  text-transform: uppercase;
+  color: #aaa;
+  margin-top: -3px;
 }
 
 .features {

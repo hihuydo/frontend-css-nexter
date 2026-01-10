@@ -1,4 +1,62 @@
 .header {
     background-color: $color-grey-dark-1;
     grid-column: full-start / col-end 6;
+
+    background-image: linear-gradient(rgba($color-secondary, 0.93), 
+                      rgba($color-secondary, 0.93)), 
+                      url(../img/hero.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 8rem 8rem 8rem;
+
+    display: grid;
+    grid-template-rows: 1fr min-content 6rem 1fr; /* 1fr means the first row takes up the full height of the grid, min-content means the second row takes up the minimum height needed to fit the content, 6rem means the third row takes up 6rem, 1fr means the fourth row takes up the full height of the grid */
+    grid-template-columns: max-content; /* max-content means the columns takes up the maximum width needed to fit the content */
+    grid-row-gap: 1.5rem;
+    justify-content: center; /* centers the content in the grid */
+
+    &__logo {
+        height: 3rem;
+        justify-self: center; /* centers the logo in the grid */
+    }
+
+    &__seenons-text {
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-column-gap: 2rem;
+        align-items: center;
+
+
+        font-size: 1.6rem;
+        color: $color-grey-light-2;
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            height: 1px;
+            background-color: currentColor;
+            width: 100%;
+        }
+
+    }
+
+    &__seenons-logos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 3rem;
+        justify-items: center;
+
+        img {
+            height: 2.5rem;  
+            filter: brightness(70%); /* makes the logos slightly darker */
+        }
+
+    }
+
+    &__btn { /* aligns the button to the start of the grid */
+        align-self: start;
+        justify-self: start;
+
+    }
 }
