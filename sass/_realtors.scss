@@ -1,6 +1,7 @@
 .realtors {
     background-color: $color-secondary;
     grid-column: col-start 7 / full-end;
+    grid-row: 1 / 2;
 
     padding: 3rem;
 
@@ -10,13 +11,56 @@
     justify-items: center;
     grid-row-gap: 2rem;
 
+    @media only screen and (max-width: $bp-large) {
+        grid-column: full-start / full-end;
+        grid-row: 3 / 4;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: full-start / full-end;
+        grid-row: 3 / 4;
+        padding: 3rem 4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        grid-row: 3 / 4;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 2rem;
+        grid-row-gap: 1.5rem;
+    }
+
     &__list {
         display: grid;
         grid-template-columns: min-content max-content;
-        grid-column-gap: 2rem;
+        grid-column-gap: 3rem;
         grid-row-gap: 5vh;
         align-items: center;
 
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: repeat(3, min-content max-content);
+            grid-column-gap: 3rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            grid-row-gap: 1rem;
+            grid-column-gap: 3rem;
+            justify-items: center;
+            align-items: start;
+        }
+
+        // Position each realtor pair in their own column at 640px
+        @media only screen and (max-width: $bp-small) {
+            > *:nth-child(1) { grid-column: 1; grid-row: 1; } // Image 1
+            > *:nth-child(2) { grid-column: 1; grid-row: 2; } // Details 1
+            > *:nth-child(3) { grid-column: 2; grid-row: 1; } // Image 2
+            > *:nth-child(4) { grid-column: 2; grid-row: 2; } // Details 2
+            > *:nth-child(5) { grid-column: 3; grid-row: 1; } // Image 3
+            > *:nth-child(6) { grid-column: 3; grid-row: 2; } // Details 3
+        }
     }
 
     &__img {
@@ -24,6 +68,18 @@
         border-radius: 50%;
         display: block;
 
+        @media only screen and (max-width: $bp-small) {
+            width: 5rem;
+            justify-self: center;
+        }
+
+    }
+
+    &__details {
+        @media only screen and (max-width: $bp-small) {
+            text-align: center;
+            justify-self: center;
+        }
     }
 
     &__sold {
