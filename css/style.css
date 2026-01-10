@@ -29,9 +29,21 @@ body {
   | sidebar-start | sidebar-end | full-start | center-start | center-end | full-end |
   */
 }
-.container > * {
-  padding: 40px;
-  font-size: 1.6rem;
+
+.heading-4 { /* this is a placeholder for the heading class */
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.heading-4 {
+  /* this extends the heading class */
+  font-size: 1.9rem;
+}
+.heading-4--light {
+  color: #f9f7f6;
+}
+.heading-4--dark {
+  color: #54483A;
 }
 
 .sidebar {
@@ -51,8 +63,35 @@ body {
 }
 
 .features {
-  background-color: #f9f7f6;
   grid-column: center-start/center-end;
+  margin: 15rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  /* repeat the number of columns needed to fit the content, min-content is the minimum width of the column, 1fr is the maximum width of the column */
+  grid-gap: 6rem;
+  align-items: start;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr; /* min-content is the width of the icon, 1fr is the width of the text */
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+}
+.feature__icon {
+  fill: #c69963;
+  width: 4.5rem;
+  height: 4.5rem;
+  grid-row: 1/span 2; /* the icon should span 2 rows */
+  transform: translateY(-1rem);
+}
+.feature__icon {
+  fill: #c69963;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+.feature__text {
+  font-size: 1.7rem;
 }
 
 .story__pictures {
