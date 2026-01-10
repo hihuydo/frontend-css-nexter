@@ -14,6 +14,14 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; /* 1200px / 16px = 75em */
+$bp-large: 73.75em; /* 1180px / 16px = 73.75em */
+$bp-medium: 56.25em; /* 900px / 16px = 56.25em */
+$bp-small: 40em; /* 640px / 16px = 40em */
+$bp-smallest: 37.5em; /* 600px / 16px = 37.5em */
+$bp-tiny: 31.25em; /* 500px / 16px = 31.25em */
+
 *, 
 *:before,
 *:after {
@@ -24,7 +32,11 @@ $font-display: 'Josefin Sans', sans-serif;
 
 html {
     box-sizing: border-box;
-    font-size: 62,5%; /* 10px / 16px = 62,5% = 1rem */
+    font-size: 62.5%; /* 10px / 16px = 62.5% = 1rem */
+    
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 50%; /* 8px / 16px = 50% = 1rem */
+    }
 }
 
 body {
@@ -54,6 +66,26 @@ body {
         | 8rem | flexible column, min. 6rem, max. 1fr | 8 columns, each column takes min-content, max. 14rem | flexible column, min. 6rem, max. 1fr |
         | sidebar-start | sidebar-end | full-start | center-start | center-end | full-end |
         */
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows: 6rem 80vh min-content min-content repeat(3, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-rows: 6rem minmax(60vh, min-content) min-content min-content repeat(3, min-content);
+        grid-template-columns: [full-start] minmax(4rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(4rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-rows: 6rem minmax(70vh, min-content) repeat(7, min-content);
+        grid-template-columns: [full-start] 1fr [full-end];
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        grid-template-rows: 6rem repeat(8, min-content);
+        grid-template-columns: [full-start] 1fr [full-end];
+    }
 } 
 
 .mb-sm { margin-bottom: 2rem; }

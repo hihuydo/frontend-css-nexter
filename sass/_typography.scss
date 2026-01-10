@@ -10,6 +10,19 @@
     line-height: 1;
     letter-spacing: -0.5px;
 
+    @media only screen and (max-width: $bp-large) {
+        font-size: 4rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 3.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 3rem;
+        letter-spacing: -0.3px;
+    }
+
     &--light { color: $color-grey-light-1; }
     &--dark { color: $color-grey-dark-1; }
 }
@@ -20,6 +33,18 @@
     font-style: italic;
     line-height: 1;
 
+    @media only screen and (max-width: $bp-large) {
+        font-size: 3.5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 2.5rem;
+    }
+
     &--light { color: $color-grey-light-1; }
     &--dark { color: $color-grey-dark-1; }
 }
@@ -29,11 +54,19 @@
     font-size: 1.6rem;
     color: $color-primary;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 1.4rem;
+    }
 }
 
 .heading-4 {
     @extend %heading; /* this extends the heading class */
     font-size: 1.9rem;
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 1.7rem;
+    }
 
     &--light { color: $color-grey-light-1; }
     &--dark { color: $color-grey-dark-1; }
@@ -50,6 +83,16 @@
     padding: 1.8rem 3rem;
     cursor: pointer;
     transition: all 0.2s;
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 1.4rem;
+        padding: 1.5rem 2.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 1.3rem;
+        padding: 1.3rem 2rem;
+    }
 
     &:hover { background-color: $color-primary-dark; }
 }

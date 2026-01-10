@@ -1,8 +1,23 @@
 .footer {
     background-color: $color-secondary;
     grid-column: full-start / full-end;
+    grid-row: 6 / 7;
     
     padding: 8rem;
+
+    @media only screen and (max-width: $bp-large) {
+        grid-row: 7 / 8;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-row: 9 / 10;
+        padding: 6rem 4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        grid-row: 9 / 10;
+        padding: 4rem 2rem;
+    }
 }
 
 .nav {
@@ -12,6 +27,16 @@
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));     // (6, 1fr)
     grid-gap: 2rem;
     align-items: start;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        grid-gap: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+    }
 
     &__link:link,
     &__link:visited {
@@ -24,6 +49,11 @@
         padding: 1.5rem;
         display: block; /* for padding to work */
         transition: all 0.2s;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.3rem;
+            padding: 1.2rem;
+        }
     }
 
     &__link:hover,
@@ -39,4 +69,16 @@
     text-align: center;
     width: 50%;
     margin: 6rem auto 0 auto; /* center the copyright */
+
+    @media only screen and (max-width: $bp-medium) {
+        width: 70%;
+        margin: 4rem auto 0 auto;
+        font-size: 1.3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        width: 90%;
+        margin: 3rem auto 0 auto;
+        font-size: 1.2rem;
+    }
 }

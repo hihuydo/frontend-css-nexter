@@ -1,5 +1,6 @@
 .features {
     grid-column: center-start / center-end;
+    grid-row: 2 / 3;
 
     margin: 15rem 0;
 
@@ -9,6 +10,27 @@
     /* repeat the number of columns needed to fit the content, min-content is the minimum width of the column, 1fr is the maximum width of the column */
     grid-gap: 6rem;
     align-items: start;
+
+    @media only screen and (max-width: $bp-large) {
+        grid-column: center-start / center-end;
+        grid-row: 4 / 5;
+        margin: 10rem 0;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: full-start / full-end;
+        grid-row: 4 / 5;
+        margin: 8rem 4rem;
+        grid-gap: 4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        grid-row: 4 / 5;
+        margin: 6rem 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, min-content);
+        grid-gap: 3rem;
+    }
 }
 
 // FEATURE COMPONENT
@@ -36,6 +58,10 @@
 
     &__text {
         font-size: 1.7rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.5rem;
+        }
     }
 
 }

@@ -2,11 +2,23 @@
     &__pictures {
         background-image: linear-gradient(rgba($color-primary, 0.5), rgba($color-primary, 0.5)), url(../img/back.jpg);
         grid-column: full-start / col-end 4; /* full-start means the start of the grid, col-end 4 means the end of the 4th column */
+        grid-row: 3 / 4;
 
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(6, 1fr);
         align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: full-start / full-end;
+            grid-row: 5 / 6;
+            padding: 6rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-row: 5 / 6;
+            padding: 4rem;
+        }
     }
 
     &__img--1 {
@@ -16,6 +28,11 @@
         grid-column: 2 / 6;
         align-items: center;
         box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+
+        @media only screen and (max-width: $bp-small) {
+            grid-row: 1 / -1;
+            grid-column: 1 / 5;
+        }
     }
 
     &__img--2 {
@@ -25,11 +42,18 @@
         grid-row: 4 / 6;
         grid-column: 4 / 7;
         box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+
+        @media only screen and (max-width: $bp-small) {
+            width: 100%;
+            grid-row: 3 / -1;
+            grid-column: 4 / -1;
+        }
     }
 
     &__content {
         background-color: $color-grey-light-1;
         grid-column: col-start 5 / full-end; /* col-start 5 means the start of the 5th column, full-end means the end of the grid */
+        grid-row: 3 / 4;
 
         padding: 6rem 8vw;
 
@@ -43,9 +67,24 @@
         display: grid;
         align-content: center;
         justify-items: start;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: full-start / full-end;
+            grid-row: 6 / 7;
+            padding: 6rem 8vw;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-row: 6 / 7;
+            padding: 4rem;
+        }
     }
 
     &__text {
         font-size: 1.7rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.5rem;
+        }
     }
 }
